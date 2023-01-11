@@ -1,0 +1,50 @@
+#!/bin/sh
+
+_fzf() {
+	if [ "$show_hidden" = 'true' ]; then
+		export FZF_DEFAULT_COMMAND='find -L -type f -printf "%P\\n"'
+	else
+		export FZF_DEFAULT_COMMAND='find -L -not -path "*/\.*" -type f -printf "%P\\n"'
+	fi
+
+	if [ "$preview" = 'true' ]; then
+		fzf --preview 'cat {}'
+	else
+		fzf --preview 'cat {}' --preview-window 'hidden'
+	fi
+}
+
+while getopts "ailp" opt; do
+	case $opt in
+		a) show_hidden='true' ;;
+		i) preview='true' ;;
+		l) select_last='true' ;;
+		p) print_only='true' ;;
+		*) exit 1 ;;
+	esac
+done 2>/dev/null
+
+shift $((OPTIND-1))
+
+last='/tmp/fuzzyfindlastselection'
+
+if [ "$select_last" = 'true' ]; then
+	sel="$(cat "$last" 2>/dev/null)"
+else
+	dir=${1:-"$PWD"} 
+	[ -d "$dir" ] && 
+
+	file=$(cd -- "$dir" 2>/dev/null || exit 1; _fzf)
+	[ -z "$file" ] && exit 1
+
+	sel="$dir"/"$file"
+	echo "$sel" > "$last"
+fi
+
+[ -z "$sel" ] && exit 1
+
+if [ "$print_only" = 'true' ]; then
+	echo "$sel" | tr -s '/'
+else
+	$EDITOR "$sel" 2>/dev/null
+fi

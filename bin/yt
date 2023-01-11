@@ -1,0 +1,8 @@
+#!/bin/sh
+
+dir="$HOME/vid/yt"
+
+mkdir -p "$dir"
+cd "$dir"
+
+youtube-dl -f 18 "$@"

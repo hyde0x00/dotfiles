@@ -1,0 +1,8 @@
+#!/bin/sh
+
+capitalize() {
+	printf '%s\n' "$1" | sed -e "s/\b./\u\0/g"
+}
+
+if [ -n "$1" ]; then capitalize "$*"; fi
+if [ ! -t 0 ]; then while read -r line; do capitalize "$line"; done; fi

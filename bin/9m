@@ -1,0 +1,22 @@
+#!/bin/sh
+
+BW=2
+
+sel="$(xclip -o -sel p 2>/dev/null)"
+items="$HOME/.9menu"
+
+items() { cut -f1 "$items"; }
+run() { eval "$(grep '^'$1'*' "$items" | tr -s '\t' | cut -f2)" 2>/dev/null; }
+
+[ "$1" = '-e' ] && {
+	$EDITOR "$items"
+	exit
+}
+
+W=$(( $(len "$(items | awk 'length > max_length { max_length = length; longest_line = $0 } END { print longest_line }')") * $(xres fontsize) ))
+L="$(items | wc -l)"
+
+eval "$(xdotool getmouselocation --shell)"
+
+item="$(items | dmenu -9 -x $X -y $Y -w $W -bw $BW -l $L)"
+[ -n "$item" ] && run "$item"

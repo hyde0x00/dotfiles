@@ -1,0 +1,51 @@
+#!/bin/sh
+
+def=100
+min=25
+max=250
+
+saved='/tmp/brightness'
+read -r curr < "$saved" 2>/dev/null
+
+is_int() { [ "$1" -eq "$1" ] 2>/dev/null; }
+from_perc() { echo "$1 / 100" | bc -l; }
+
+help() {
+        printf 'min: %d, max: %d, current: %d\n' "$min" "$max" "$curr" 
+	exit 1
+}
+
+get_in_bounds() {
+	perc="$1"
+
+        [ "$perc" -le "$min" ] && perc="$min"
+        [ "$perc" -ge "$max" ] && perc="$max"
+
+	echo "$perc"
+}
+
+set_to() {
+        p="$(get_in_bounds "$1")"
+        v="$(from_perc "$p")"
+
+        xrandr --listmonitors | grep "^ " | cut -f 6 -d' ' | \
+                xargs --replace=DISP xrandr --output DISP --brightness "$v"
+	echo "$p" > "$saved"
+}
+
+inc_or_dec() {
+        set_to $(( curr + $1 ))
+}
+
+[ ! -f "$saved" ] && {
+        echo "$def" > "$saved"
+        read -r curr < "$saved"
+        set_to "$curr"
+}
+
+is_int "$1" || help
+
+case "$1" in
+        [+-]*) inc_or_dec "$1" ;;
+        *) set_to "$1" ;;
+esac

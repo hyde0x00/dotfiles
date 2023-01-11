@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# .bashrc: 
+# export LESS='-M -R -i'
+# export LESS_TERMCAP_md="$(printf '\33[m')" # no bold
+# export LESS_TERMCAP_us="$(printf '\33[m')" # no underline
+# export GROFF_NO_SGR=0 MANWIDTH=80
+#
+# https://www.computerhope.com/unix/uless.htm
+#
+
+less "$@"

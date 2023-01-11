@@ -1,0 +1,41 @@
+#!/bin/sh
+
+while getopts "afiE:I:" opt; do
+ 	case "$opt" in
+ 		a) show_hidden='true' ;;
+ 		f) match_filenames='true' ;; 
+		i) set -- "$@" --ignore-case ;;
+		E) set -- "$@" --exclude="$OPTARG" ;;
+		I) set -- "$@" --include="$OPTARG" ;;
+		*) exit 1 ;;
+ 	esac
+done 2>/dev/null
+
+shift $((OPTIND-1))
+
+[ -z "$1" ] && exit 1
+
+if [ "$show_hidden" = 'true' ]; then
+	g="$(grep -HnRs "$@")"
+else
+	g="$(grep -HnRs "$@"	\
+	--exclude 'tags' 	\
+	--exclude 'cscope.out' 	\
+	--exclude-dir '.*'	\
+	--exclude '.*')"
+fi
+
+[ -z "$g" ] && exit 1
+
+if [ "$match_filenames" = 'true' ]; then 
+	sel="$(echo "$g" | ifne fzf)"
+else
+	sel="$(echo "$g" | ifne fzf -d ':' -n 3..)"
+fi
+
+[ -z "$sel" ] && exit 1
+
+file="$(printf '%s\n' "$sel" | cut -f 1 -d ':')"
+line="$(printf '%s\n' "$sel" | cut -f 2 -d ':')"
+
+$EDITOR +"$line" "$file"

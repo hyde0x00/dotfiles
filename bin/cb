@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cb='/tmp/vi-clipboard'
+
+do="${1:-copy}"
+sel="${2:-clipboard}"
+
+case "$do" in
+	y|copy|yank) 
+		tee > "$cb"
+		cat "$cb"
+		[ -n "$DISPLAY" ] && cat "$cb" | xsel -i --${sel} 2>/dev/null
+		;;
+	d|cut|del) 
+		tee > "$cb"
+		[ -n "$DISPLAY" ] && cat "$cb" | xsel -i --${sel} 2>/dev/null
+		;;
+	p|paste) 
+		[ -n "$DISPLAY" ] && xsel -o --${sel} > "$cb" 2>/dev/null
+		cat "$cb" 
+		;;
+esac

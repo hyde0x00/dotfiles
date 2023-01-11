@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# https://en.wikipedia.org/wiki/ISO_8601
+
+date ${1} +%Y%m%d%H%M%S	

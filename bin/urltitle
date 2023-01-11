@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# https://stackoverflow.com/questions/1547899/which-characters-make-a-url-invalid 
+# https://stackoverflow.com/questions/161738/what-is-the-best-regular-expression-to-check-if-a-string-is-a-valid-url
+# https://www.rfc-editor.org/rfc/rfc3986#section-2
+# https://www.ietf.org/rfc/rfc1738.txt
+# https://www.ietf.org/rfc/rfc2396.txt 
+# https://www.ietf.org/rfc/rfc3986.txt
+
+strip_title() {
+	sed 's/ - 4chan//g'       |
+	sed 's/ - Wikipedia//g'   |
+	sed 's/ — Википедия//g'   |
+	sed 's/ | ВКонтакте//g'   |
+	sed 's/ — LiveJournal//g' |
+	sed 's/ | Hacker News//g' |
+	sed 's/ \/ Хабр//g'       |
+	sed 's/ - YouTube//g'
+}
+
+url_title() {
+	x="$(echo "$1" | sed 's/www\.//g' | nows)"
+	t="$(wget -qO- "$1" 2>/dev/null |
+		perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)\s*<\/title/si;' 2>/dev/null)"
+
+	if [ -z "$t" ]; then
+		printf '%s' "$x"
+		printf ' '
+	else
+		t="$(echo "$t" | strip_title)"
+		printf '[%s]' "$t"
+		printf '(%s)' "$x"
+		printf '\n'
+	fi
+}
+
+if [ ! -t 0 ]; then
+	while read -r line; do
+		for word in $line; do
+			url_title "$word"
+		done 
+	done
+fi
+
+if [ -n "$1" ]; then
+	for arg do 
+		url_title "$arg"
+	done
+fi

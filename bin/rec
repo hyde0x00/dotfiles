@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#RES=''
+
+# Remove -an as it suppress the audio.
+ffmpeg -f x11grab -s $RES -i :0.0 -c:v libvpx -b:v 5M -crf 10 -quality realtime -y -loglevel quiet an

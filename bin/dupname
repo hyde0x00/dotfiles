@@ -1,0 +1,34 @@
+#!/bin/sh
+
+trim_n() { printf '%s\n' "$1" | sed 's/_\+$//; s/_[0-9]\+$//'; }
+
+dupname() {
+	name="$(trim_n "$1")"
+
+	dup="$name"
+
+	[ -e "$dup" ] && dup="$name"_
+
+	[ -e "$dup" ] && {
+		i=0
+		while [ -e "$name"_$i ]; do 
+			i=$((i+1))
+		done
+
+		dup="$name"_$i
+	}
+
+	printf '%s\n' "$dup"
+}
+
+[ "$#" != 2 ] || [ ! -e "$1" ] && exit 1
+
+src="$1"
+dst="$2"
+
+[ -f "$dst" ] && 
+	dst="$(dupname "$dst")"
+[ -d "$dst" ] && 
+	dst="$(dupname "$dst/$(basename "$src")")"
+
+mv -v -- "$src" "$dst"

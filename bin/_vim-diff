@@ -1,0 +1,6 @@
+#!/bin/sh
+
+file="$1"
+buf='/tmp/vimdiff'
+
+diff "$file" "$buf" | ifne pg +G 2>/dev/null

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# https://wiki.archlinux.org/title/PipeWire
+# https://en.wikipedia.org/wiki/PulseAudio
+
+killall pulseaudio &>/dev/null
+rm -r ~/.config/pulse/* &>/dev/null
+sleep 5
+pulseaudio -k &>/dev/null
+systemctl --user restart pipewire.service pipewire-pulse.socket &>/dev/null
+sleep 5
+hd440 &

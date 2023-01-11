@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# print repeating lines
+awk 'c[$0]++; c[$0]==2'

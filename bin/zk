@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# init                initialize a git ZK repo at configured or given path
+# add                 add a new zettel
+# edit                edit an existing zettel
+# rm                  remove a zettel
+# show                print zettel contents
+# list                list all zettels
+# tags                list all tags and count them
+# clean               delete empty folders in 'zettels' folder in ZK repo
+# sample-config       produce a sample pyzet.yaml file
+
+# grep                run 'git grep' with some handy flags in ZK repo
+# status              run 'git status' in ZK repo
+# pull                run 'git pull --rebase' in ZK repo
+# push                run 'git push' in ZK repo
+# remote              run 'git remote' in ZK repo
+
+case "$1" in 
+	new) 
+		isosec
+	;;
+	*) exit
+
+	;;
+esac
+
+exit

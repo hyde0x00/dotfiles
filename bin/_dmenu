@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dmenu -i -l 25 -fn Cantarell -nf \#FFFFFF -nb \#000000 -sf \#FFFFFF -sb \#242424

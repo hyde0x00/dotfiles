@@ -1,0 +1,74 @@
+#!/bin/sh
+
+test -z "$1" && {
+	printf 'Dictionary\n'
+	exit
+}
+
+translate() {
+	printf '#translate\n'
+
+	printf '%s\n' "$(sdcv -n ${SDCV_COLOR} \
+		-u "LingvoUniversal (En-Ru)" \
+		-u "LingvoUniversal (Ru-En)" \
+		-u "Apresyan (En-Ru)" \
+		-u "Computers (En-Ru)" \
+		-u "Computers (Ru-En)" \
+		-u "LingvoComputer (En-Ru)" \
+		-u "LingvoComputer (Ru-En)" \
+		-u "Accounting (En-Ru)" \
+		-u "Americana (En-Ru)" \
+		-u "Biology (En-Ru)" \
+		-u "Biology (Ru-En)" \
+		-u "Building (En-Ru)" \
+		-u "Building (Ru-En)" \
+		-u "Computers (Ru-En)" \
+		-u "Engineering (En-Ru)" \
+		-u "Engineering (Ru-En)" \
+		-u "Essential (En-Ru)" \
+		-u "Essential (Ru-En)" \
+		-u "FinancialManagement (En-Ru)" \
+		-u "FinancialMarkets (En-Ru)" \
+		-u "GreatBritain (En-Ru)" \
+		-u "Informal (En-Ru)" \
+		-u "Law (En-Ru)" \
+		-u "Law (Ru-En)" \
+		-u "LingvoComputer (Ru-En)" \
+		-u "LingvoEconomics (En-Ru)" \
+		-u "LingvoEconomics (Ru-En)" \
+		-u "LingvoGrammar (En-Ru)" \
+		-u "LingvoScience (En-Ru)" \
+		-u "LingvoScience (Ru-En)" \
+		-u "Management (En-Ru)" \
+		-u "Marketing (En-Ru)" \
+		-u "MechanicalEngineering (En-Ru)" \
+		-u "MechanicalEngineering (Ru-En)" \
+		-u "Medical (En-Ru)" \
+		-u "Medical (Ru-En)" \
+		-u "OilAndGas (En-Ru)" \
+		-u "OilAndGas (Ru-En)" \
+		-u "Patents (En-Ru)" \
+		-u "Patents (Ru-En)" \
+		-u "PhraseBook (Ru-En)" \
+		-u "Physics (En-Ru)" \
+		-u "Physics (Ru-En)" \
+		-u "Polytechnical (En-Ru)" \
+		-u "Polytechnical (Ru-En)" \
+		-u "Telecoms (En-Ru)" \
+		-u "Telecoms (Ru-En)" \
+		"$@")"
+}
+
+define() {
+	printf '\n#define\n' 
+
+	printf '%s\n' "$(sdcv -n ${SDCV_COLOR} \
+		-u "Oxford Advanced Learner's Dictionary 8th Ed." \
+		-u "Moby Thesaurus II" \
+		-u "Ushakov's Dictionary (Ru-Ru)" \
+		-u "Ozhegov Shvedova (Ru-Ru)" \
+		"$@")"
+}
+
+(translate "$@"; define "$@") | pg +/^#
+exit 0

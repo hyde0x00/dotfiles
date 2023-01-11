@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# print unique lines only, skip blanks
+awk '/^[[:blank:]]*$/ { print; next; }; !seen[$0]++'

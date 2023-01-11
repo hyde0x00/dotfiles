@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[ -z "$1" ] && {
+        printf 'Define words\n'
+        exit 1
+}
+
+printf '%s\n' "$(sdcv -n -c \
+        -u "Oxford Advanced Learner's Dictionary 8th Ed." \
+        -u "Moby Thesaurus II" \
+        -u "Ushakov's Dictionary (Ru-Ru)" \
+        -u "Ozhegov Shvedova (Ru-Ru)" \
+        "$@")" | pg

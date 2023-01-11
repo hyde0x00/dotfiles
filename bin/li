@@ -1,0 +1,18 @@
+#!/bin/sh
+
+lingvo() {
+	xdg-open https://www.lingvolive.com/en-us/translate/en-ru/"$1"
+}
+
+if [ -n "$1" ]; then 
+	for arg in $@; do
+		lingvo "$arg"
+	done
+fi
+
+if [ ! -t 0 ]; then 
+	while read -r line; do 
+		lingvo "$line";
+		printf '%s\n' "$line"
+	done 
+fi

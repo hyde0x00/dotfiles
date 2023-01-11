@@ -1,0 +1,9 @@
+#!/bin/sh
+
+dir="$NOTES_DIR"
+
+if [ -z "$1" ]; then
+	fd -a "$dir"
+else
+	gp -a -- -i "$*" "$dir"
+fi

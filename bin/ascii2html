@@ -1,0 +1,3 @@
+#!/bin/sh
+
+perl -MHTML::Entities -pe 'encode_entities($_);' 2>/dev/null

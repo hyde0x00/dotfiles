@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo bookmarks maybe
+exit
+
+BM="$HOME/.local/share/bookmarks"
+
+case "$1"  in
+	-c|copy) cat "$BM" | nobl | nows | _dmenu | xclip -selection c ;;
+	-e|edit) $EDITOR "$BM" ;;
+	-o|open) firefox `cat "$BM" | _dmenu` ;;
+esac

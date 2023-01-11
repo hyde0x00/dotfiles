@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -z "$*" ] && exit
+
+ly "google.com/search?hl=en&q=$*"

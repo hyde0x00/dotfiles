@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# remove whitespace at the end
+sed 's/\s\+$//g'

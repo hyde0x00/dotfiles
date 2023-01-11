@@ -1,0 +1,64 @@
+#!/bin/sh
+
+say() {
+	echo "$(basename $0): $1"
+}
+
+if [ -z "$1" ]; then
+	say "extract archives"
+	exit 1
+fi
+
+extract() {
+	if [ ! -e "$1" ]; then
+		say "'$1' is not a file"
+		return 1
+	fi
+	if [ -d "$1" ]; then
+		say "'$1' is a directory"
+		return 1
+	fi
+
+	rp="$(realpath "$1")"
+
+	case "$1" in
+		*.tar.bz2|*.tar.gz|*.tar.xz|*.tar.zst) dotfield=3 ;;
+		*) dotfield=2 ;;
+	esac
+
+	dir="$(echo "$1" | rev | cut -f "$dotfield"- -d '.' | rev)"
+
+	mkdir -- "$dir"
+	cd -- "$dir"
+
+	case "$1" in
+		*.tar.bz2|*.tar.gz|*.tar.xz)
+			tar xvf "$rp" ;;
+		*.tar.zst)
+			tar -I zstd -xf "$rp" ;;
+		*.cbt|*.tbz2|*.tgz|*.txz|*.tar)
+			tar xvf "$rp" ;;
+		*.7z) 7za e "$rp" ;;
+		*.arc) arc e "$rp" ;;
+		*.bz2) bunzip2 "$rp" ;;
+		*.cba|*.ace) unace x "$rp" ;;
+		*.cbr|*.rar) unrar x -ad "$rp" ;;
+		*.cbz|*.epub|*.zip) unzip "$rp" ;;
+		*.cpio) cpio -id < "$rp" ;;
+		*.exe) cabextract "$rp" ;;
+		*.gz) gunzip "$rp" ;;
+		*.lzma) unlzma "$rp" ;;
+		*.tbz2) tar xvjf "$rp" ;;
+		*.tgz) tar xvzf "$rp" ;;
+		*.xz) unxz "$rp" ;;
+		*.zpaq) zpaq x "$rp" ;;
+		*.zlib) zlib-flate -uncompress < "$rp" > "$rp.tmp" && \
+				mv "$rp.tmp" "${1%.*zlib}" && rm -f "$rp" ;;
+		*.z|*.Z) uncompress "$rp" ;;
+		*) say "Unknown archive method: '$1'"; return 1 ;;
+	esac
+
+	cd ..
+}
+
+for n; do extract "$n"; done

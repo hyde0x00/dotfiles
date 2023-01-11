@@ -1,0 +1,12 @@
+#/bin/sh
+
+# parse
+# http
+# 
+# single? 
+# pick single with fzf
+# open N links in $BROWSER? [Y/n] 
+
+echo parse urls
+
+exit

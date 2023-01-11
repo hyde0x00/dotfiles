@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xkb-switch -s us
+dmenu_run ${DMENU_OPTS} -nb "$(xres bar.background)" -nf "$(xres bar.foreground)" -sb "$(xres bar.foreground)" -sf "$(xres bar.background)"

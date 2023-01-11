@@ -1,0 +1,4 @@
+#!/bin/sh
+
+curl ipinfo.io
+printf '\n'

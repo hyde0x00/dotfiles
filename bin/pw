@@ -1,0 +1,20 @@
+#!/bin/sh
+
+exit
+
+set -e
+
+cd ~/.password-store/ && find . -name '*.gpg' \
+	| sed 's/^..//g; s/....$//g' \
+	| fzf --preview='pass show {}' --bind 'alt-e:execute(pass edit {})'
+	| xargs pass -c
+
+New
+	Name: [insert]
+	Password: [insert
+Copy
+	Name
+	Password
+	Both
+Edit
+Delete

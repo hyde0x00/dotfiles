@@ -1,0 +1,5 @@
+#!/bin/sh
+
+p="$(realpath "$1" 2>/dev/null)"
+[ ! -f "$p" ] && exit 1
+zenity --title="mpv" --question --text "Delete file \"$p\"?" && rm -- "$p"

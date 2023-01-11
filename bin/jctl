@@ -1,0 +1,8 @@
+#!/bin/sh
+
+exit 1
+
+#LINES="${1:-100}"
+
+#journalctl --no-pager -q --since="$(date --rfc-3339=date)" --user | tail -n "$LINES"
+#journalctl --no-pager -q --since="$(date --rfc-3339=date)" --system | tail -n "$LINES"

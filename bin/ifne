@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Run command if the standard input is not empty
+
+read line || exit 1
+(printf '%s\n' "$line"; cat) | eval "$@"

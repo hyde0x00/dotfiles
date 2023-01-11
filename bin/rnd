@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cat /dev/urandom | tr -dc '0-9' | fold -w "${1:-8}" | head -n 1
+# cat /dev/urandom | tr -dc '[:alpha:]' | fold -w "${1:-8}" | head -n 1 
+# hexdump -v -n "${1:-8}" -e'4/4 "%08X" 1 "\n"' /dev/urandom 
+# hexdump -v -n "${1:-8}" -e'4/4 "%08x" 1 "\n"' /dev/urandom 
