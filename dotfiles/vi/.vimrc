@@ -44,7 +44,7 @@ set clipboard=unnamedplus
 set hidden
 
 colorscheme x
-syntax off
+syntax on
 
 set background=dark
 set t_Co=16
@@ -75,7 +75,8 @@ set wrap
 set nolist
 set listchars=tab:│\ ,eol:\ ,trail:\ 
 set listchars+=precedes:«,extends:»
-"set fillchars+=lastline:\ 
+set fillchars+=lastline:\ 
+set fillchars+=vert:│
 
 set completeopt=""
 set spelllang=en_us,ru_ru

@@ -20,7 +20,7 @@ hi  Underlined        ctermfg=NONE  ctermbg=NONE  cterm=underline
 hi  Comment           ctermfg=9     ctermbg=NONE  cterm=NONE
 hi  Todo              ctermfg=9     ctermbg=NONE  cterm=NONE
 hi  Statement         ctermfg=11    ctermbg=NONE  cterm=NONE
-hi  Constant          ctermfg=10    ctermbg=NONE  cterm=NONE
+hi  Constant          ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  String            ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  Special           ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  Identifier        ctermfg=NONE  ctermbg=NONE  cterm=NONE
@@ -32,15 +32,12 @@ hi  EndofBuffer       ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  Folded            ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  FoldColumn        ctermfg=8     ctermbg=NONE  cterm=NONE
 
-" hi  ColorColumn       ctermfg=NONE  ctermbg=233   cterm=NONE
-" hi  CursorColumn      ctermfg=NONE  ctermbg=233   cterm=NONE
-" hi  CursorLine        ctermfg=NONE  ctermbg=233   cterm=NONE
-" hi  CursorLineNr      ctermfg=3     ctermbg=233   cterm=NONE
+hi  LineNr            ctermfg=8     ctermbg=NONE  cterm=NONE
+hi  CursorLineNr      ctermfg=3     ctermbg=NONE  cterm=NONE
 
 hi  ColorColumn       ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  CursorColumn      ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  CursorLine        ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  CursorLineNr      ctermfg=3     ctermbg=NONE  cterm=NONE
 
 hi  DiffAdd           ctermfg=0     ctermbg=10    cterm=NONE
 hi  DiffDelete        ctermfg=0     ctermbg=9     cterm=NONE
@@ -78,23 +75,14 @@ hi  PmenuSel          ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  PmenuSbar         ctermfg=NONE  ctermbg=8     cterm=NONE
 hi  PmenuThumb        ctermfg=NONE  ctermbg=NONE  cterm=reverse
 
-" white-grey reverse
-hi  StatusLine        ctermfg=NONE  ctermbg=NONE  cterm=reverse
-hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse
-hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=NONE
-hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=NONE
-hi  VertSplit         ctermfg=0     ctermbg=8     cterm=NONE
-
-" grey
-hi  StatusLine        ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  StatusLineTerm    ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=reverse
-hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=reverse
-hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
-
 hi  TabLine           ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  TabLineSel        ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse
+hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
+hi  StatusLine        ctermfg=8     ctermbg=0     cterm=reverse
+hi  StatusLineTerm    ctermfg=8     ctermbg=0     cterm=reverse
+hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=NONE
+hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=NONE
 
 hi  ModeMsg           ctermfg=NONE  ctermbg=NONE  cterm=bold
 hi  ErrorMsg          ctermfg=15    ctermbg=1     cterm=NONE
@@ -103,19 +91,12 @@ hi  Question          ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  WarningMsg        ctermfg=9     ctermbg=NONE  cterm=NONE
 
 hi  SignColumn        ctermfg=NONE  ctermbg=NONE  cterm=NONE
-
 hi  Directory         ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  InactiveBuf       ctermfg=15    ctermbg=NONE  cterm=NONE
 hi  Invisible         ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  LineNr            ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  NonText           ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  QuickFixLine      ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  SpecialKey        ctermfg=8     ctermbg=NONE  cterm=NONE
-
-hi  LspInformationHighlight  ctermfg=NONE  ctermbg=6     cterm=NONE
-hi  LspHintHighlight         ctermfg=NONE  ctermbg=2     cterm=NONE
-hi  LspErrorHighlight        ctermfg=NONE  ctermbg=1     cterm=NONE
-hi  LspWarningHighlight      ctermfg=NONE  ctermbg=5     cterm=NONE
 
 hi  cError                   ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  cErrInBracket            ctermfg=NONE  ctermbg=NONE  cterm=NONE
@@ -127,7 +108,7 @@ hi! link cWrongComTail       Comment
 hi! link Title               Normal
 hi! link VimHiGroup          VimGroup
 
-hi! link htmlLink                 NONE
+hi! link htmlLink                 __NONE
 hi! link htmlBold                 __NONE
 hi! link htmlBoldItalic           __NONE
 hi! link htmlBoldUnderline        __NONE
@@ -141,13 +122,6 @@ hi! link htmlItalicBold           __NONE
 hi! link htmlItalicBoldUnderline  __NONE
 hi! link htmlItalicUnderlineBold  __NONE
 
-hi! link markdownBold                 __NONE
-hi! link markdownBoldDelimiter        __NONE
-hi! link markdownItalic               __NONE
-hi! link markdownItalicDelimiter      __NONE
-hi! link markdownBoldItalic           __NONE
-hi! link markdownBoldItalicDelimiter  __NONE
-
 hi! link markdownH1Delimiter __NONE
 hi! link markdownH1 __NONE
 hi! link markdownH2Delimiter __NONE
@@ -160,6 +134,13 @@ hi! link markdownH5Delimiter __NONE
 hi! link markdownH5 __NONE
 hi! link markdownH6Delimiter __NONE
 hi! link markdownH6 __NONE
+
+hi! link markdownBold                 __NONE
+hi! link markdownBoldDelimiter        __NONE
+hi! link markdownItalic               __NONE
+hi! link markdownItalicDelimiter      __NONE
+hi! link markdownBoldItalic           __NONE
+hi! link markdownBoldItalicDelimiter  __NONE
 
 hi! link markdownAutomaticLink __NONE
 hi! link markdownBlockquote __NONE
