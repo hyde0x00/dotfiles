@@ -79,12 +79,12 @@ hi  TabLine           ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  TabLineSel        ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  StatusLine        ctermfg=8     ctermbg=0     cterm=reverse
-hi  StatusLineTerm    ctermfg=8     ctermbg=0     cterm=reverse
+hi  StatusLine        ctermfg=8     ctermbg=NONE  cterm=reverse
+hi  StatusLineTerm    ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=NONE
 hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=NONE
 
-hi  ModeMsg           ctermfg=NONE  ctermbg=NONE  cterm=bold
+hi  ModeMsg           ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  ErrorMsg          ctermfg=15    ctermbg=1     cterm=NONE
 hi  MoreMsg           ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  Question          ctermfg=10    ctermbg=NONE  cterm=NONE
