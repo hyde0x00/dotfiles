@@ -75,12 +75,12 @@ hi  PmenuSel          ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  PmenuSbar         ctermfg=NONE  ctermbg=8     cterm=NONE
 hi  PmenuThumb        ctermfg=NONE  ctermbg=NONE  cterm=reverse
 
-hi  TabLine           ctermfg=8     ctermbg=NONE  cterm=reverse
-hi  TabLineSel        ctermfg=8     ctermbg=NONE  cterm=NONE
+hi  TabLine           ctermfg=NONE  ctermbg=NONE  cterm=reverse,underline
+hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=bold
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  StatusLine        ctermfg=8     ctermbg=NONE  cterm=reverse
-hi  StatusLineTerm    ctermfg=8     ctermbg=NONE  cterm=reverse
+hi  StatusLine        ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
+hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
 hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=NONE
 hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=NONE
 

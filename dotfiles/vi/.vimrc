@@ -57,7 +57,7 @@ autocmd FileType * setlocal nocindent nosmartindent indentexpr=
 
 set display=lastline
 set nofoldenable
-set laststatus=1
+set laststatus=2
 set shortmess+=IaoOtF
 set splitright splitbelow
 set synmaxcol=0
