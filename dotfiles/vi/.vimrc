@@ -44,7 +44,7 @@ set clipboard=unnamedplus
 set hidden
 
 colorscheme x
-syntax on
+syntax off
 
 set background=dark
 set t_Co=16
@@ -57,6 +57,7 @@ autocmd FileType * setlocal nocindent nosmartindent indentexpr=
 
 set display=lastline
 set nofoldenable
+set ruler
 set laststatus=2
 set shortmess+=IaoOtF
 set splitright splitbelow

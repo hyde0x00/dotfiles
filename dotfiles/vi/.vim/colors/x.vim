@@ -33,7 +33,7 @@ hi  Folded            ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  FoldColumn        ctermfg=8     ctermbg=NONE  cterm=NONE
 
 hi  LineNr            ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  CursorLineNr      ctermfg=3     ctermbg=NONE  cterm=NONE
+hi  CursorLineNr      ctermfg=8     ctermbg=NONE  cterm=NONE
 
 hi  ColorColumn       ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  CursorColumn      ctermfg=NONE  ctermbg=NONE  cterm=NONE
@@ -75,12 +75,12 @@ hi  PmenuSel          ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  PmenuSbar         ctermfg=NONE  ctermbg=8     cterm=NONE
 hi  PmenuThumb        ctermfg=NONE  ctermbg=NONE  cterm=reverse
 
-hi  TabLine           ctermfg=NONE  ctermbg=NONE  cterm=reverse,underline
-hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=bold
+hi  TabLine           ctermfg=NONE  ctermbg=NONE  cterm=reverse
+hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  StatusLine        ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
-hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
+hi  StatusLine        ctermfg=NONE  ctermbg=NONE  cterm=reverse
+hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=NONE
 hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=NONE
 
