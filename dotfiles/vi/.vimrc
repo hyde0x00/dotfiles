@@ -44,7 +44,7 @@ set clipboard=unnamedplus
 set hidden
 
 colorscheme x
-syntax off
+syntax on
 
 set background=dark
 set t_Co=16

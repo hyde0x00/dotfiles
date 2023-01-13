@@ -20,7 +20,7 @@ hi  Underlined        ctermfg=NONE  ctermbg=NONE  cterm=underline
 hi  Comment           ctermfg=9     ctermbg=NONE  cterm=NONE
 hi  Todo              ctermfg=9     ctermbg=NONE  cterm=NONE
 hi  Statement         ctermfg=11    ctermbg=NONE  cterm=NONE
-hi  Constant          ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  Constant          ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  String            ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  Special           ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  Identifier        ctermfg=NONE  ctermbg=NONE  cterm=NONE
