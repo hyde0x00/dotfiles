@@ -86,9 +86,9 @@ hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
 hi  StatusLineNC      ctermfg=0     ctermbg=8     cterm=NONE
 hi  StatusLineTermNC  ctermfg=0     ctermbg=8     cterm=NONE
 
-hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
 
+hi  Title             ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  TabLine           ctermfg=NONE  ctermbg=NONE  cterm=reverse,underline
 hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=bold
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse,underline
@@ -114,7 +114,6 @@ hi  cErrInParen       ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi! link  cCommentStartError  Comment
 hi! link  cWrongComTail       Comment
 
-hi! link  Title               Normal
 hi! link  VimHiGroup          VimGroup
 
 hi! link  htmlLink                 __NONE
