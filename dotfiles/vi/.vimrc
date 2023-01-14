@@ -22,18 +22,18 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 if filereadable(expand("~/.vim/autoload/plug.vim"))
 call plug#begin('~/.local/share/vim/plugins')
-	Plug 'tpope/vim-sleuth'
-
-	Plug 'fatih/vim-go'
-	Plug 'tomlion/vim-solidity'
-	Plug 'rust-lang/rust.vim'
-
 	Plug 'conradirwin/vim-bracketed-paste'
 	Plug 'romainl/vim-cool'
 	Plug 'PeterRincker/vim-searchlight'
 
 	" Plug 'prabirshrestha/vim-lsp'
 	" Plug 'mattn/vim-lsp-settings'
+
+	" https://jakobgm.com/posts/vim/git-integration/
+
+	Plug 'fatih/vim-go'
+	Plug 'tomlion/vim-solidity'
+	Plug 'rust-lang/rust.vim'
 	" Plug 'tpope/vim-fugitive'
 call plug#end()
 endif
@@ -44,26 +44,18 @@ set clipboard=unnamedplus
 set hidden
 
 colorscheme x
-syntax on
+syntax off
 
 set background=dark
 set t_Co=16
+
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 
 set hlsearch incsearch
 set ignorecase smartcase
 
 set autoindent
 autocmd FileType * setlocal nocindent nosmartindent indentexpr=
-
-set display=lastline
-set nofoldenable
-set ruler
-set laststatus=2
-set shortmess+=IaoOtF
-set splitright splitbelow
-set synmaxcol=0
-set title titlestring=%F
-set wildmode=longest,list
 
 " set number 
 " set relativenumber 
@@ -80,21 +72,33 @@ set fillchars+=lastline:\
 set fillchars+=vert:│
 
 set completeopt=""
-set spelllang=en_us,ru_ru
+set wildmode=longest,list
+
+set ruler
+set laststatus=2
+set nofoldenable
+set shortmess+=IaoOtF
+set splitright splitbelow
+set synmaxcol=0
+set display=lastline
+set title titlestring=%F
+
 set tags+=.tags
-
-runtime! ftplugin/man.vim
-set keywordprg=:Man
-
-"if has("eval") | let g:loaded_matchparen=1 | endif
-
-let loaded_netrwPlugin=0
-let c_comment_strings=0
-unlet c_comment_strings
 
 set nobackup
 set noswapfile
 set nowritebackup
+
+set nospell
+set spelllang=en_us,ru_ru
+
+runtime! ftplugin/man.vim
+set keywordprg=:Man
+
+" if has("eval") | let g:loaded_matchparen=1 | endif
+let loaded_netrwPlugin=0
+let c_comment_strings=0
+unlet c_comment_strings
 
 " ---
 
