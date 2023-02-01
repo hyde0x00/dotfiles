@@ -2,5 +2,5 @@
 
 # Run command if the standard input is not empty
 
-read line || exit 1
-(printf '%s\n' "$line"; cat) | eval "$@"
+read -r line || exit 1
+(echo "$line"; cat) | eval "$@"

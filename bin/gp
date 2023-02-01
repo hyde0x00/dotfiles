@@ -1,10 +1,11 @@
 #!/bin/sh
 
-while getopts "afiE:I:" opt; do
+while getopts "afiwE:I:" opt; do
  	case "$opt" in
  		a) show_hidden='true' ;;
  		f) match_filenames='true' ;; 
 		i) set -- "$@" --ignore-case ;;
+		w) set -- "$@" --word-regexp ;;
 		E) set -- "$@" --exclude="$OPTARG" ;;
 		I) set -- "$@" --include="$OPTARG" ;;
 		*) exit 1 ;;
@@ -35,7 +36,7 @@ fi
 
 [ -z "$sel" ] && exit 1
 
-file="$(printf '%s\n' "$sel" | cut -f 1 -d ':')"
-line="$(printf '%s\n' "$sel" | cut -f 2 -d ':')"
+file="$(echo "$sel" | cut -f 1 -d ':')"
+line="$(echo "$sel" | cut -f 2 -d ':')"
 
 $EDITOR +"$line" "$file"

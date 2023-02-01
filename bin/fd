@@ -26,19 +26,18 @@ done 2>/dev/null
 
 shift $((OPTIND-1))
 
-last='/tmp/fuzzyfindlastselection'
+fdlast='/tmp/fdlast'
 
 if [ "$select_last" = 'true' ]; then
-	sel="$(cat "$last" 2>/dev/null)"
+	sel="$(cat "$fdlast" 2>/dev/null)"
 else
-	dir=${1:-"$PWD"} 
-	[ -d "$dir" ] && 
+	dir=${1:-"$PWD"}
 
 	file=$(cd -- "$dir" 2>/dev/null || exit 1; _fzf)
 	[ -z "$file" ] && exit 1
 
 	sel="$dir"/"$file"
-	echo "$sel" > "$last"
+	echo "$sel" > "$fdlast"
 fi
 
 [ -z "$sel" ] && exit 1

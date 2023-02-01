@@ -1,7 +1,19 @@
-"
-" https://github.com/junegunn/vim-plug/wiki/tips
-"
+" https://jakobgm.com/posts/vim/git-integration/
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+
+syntax on
+colorscheme x
+
+set hidden
+set clipboard=unnamedplus
+
+set background=dark
+set t_Co=16
+
+" ---
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -26,56 +38,36 @@ call plug#begin('~/.local/share/vim/plugins')
 	Plug 'romainl/vim-cool'
 	Plug 'PeterRincker/vim-searchlight'
 
-	" Plug 'prabirshrestha/vim-lsp'
-	" Plug 'mattn/vim-lsp-settings'
-
-	" https://jakobgm.com/posts/vim/git-integration/
-
 	Plug 'fatih/vim-go'
-	Plug 'tomlion/vim-solidity'
-	Plug 'rust-lang/rust.vim'
-	" Plug 'tpope/vim-fugitive'
+	"Plug 'tomlion/vim-solidity'
+	"Plug 'rust-lang/rust.vim'
+
+	"Plug 'tpope/vim-fugitive'
+	"Plug 'prabirshrestha/vim-lsp'
+	"Plug 'mattn/vim-lsp-settings'
 call plug#end()
 endif
 
 " ---
 
-set clipboard=unnamedplus
-set hidden
-
-colorscheme x
-syntax off
-
-set background=dark
-set t_Co=16
-
-" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
-
 set hlsearch incsearch
 set ignorecase smartcase
 
 set autoindent
-autocmd FileType * setlocal nocindent nosmartindent indentexpr=
-
-" set number 
-" set relativenumber 
-" set cursorline
+autocmd FileType * setlocal nosmartindent nocindent indentexpr=
 
 set wrap
 " set linebreak
 " let &showbreak = '↳ '
 
-set nolist
-set listchars=tab:│\ ,eol:\ ,trail:\ 
-set listchars+=precedes:«,extends:»
-set fillchars+=lastline:\ 
-set fillchars+=vert:│
-
-set completeopt=""
-set wildmode=longest,list
-
 set ruler
-set laststatus=2
+set laststatus=1
+
+set nolist
+set listchars=trail:\ ,eol:\ ,tab:│\
+set listchars+=precedes:«,extends:»
+set fillchars+=lastline:\ ,vert:│
+
 set nofoldenable
 set shortmess+=IaoOtF
 set splitright splitbelow
@@ -83,54 +75,58 @@ set synmaxcol=0
 set display=lastline
 set title titlestring=%F
 
-set tags+=.tags
-
 set nobackup
 set noswapfile
 set nowritebackup
 
+" ---
+
+" if has("eval") | let g:loaded_matchparen=1 | endif
+
+set tags+=.tags
+
+set completeopt=""
+set wildmode=longest,list
+
 set nospell
 set spelllang=en_us,ru_ru
 
-runtime! ftplugin/man.vim
-set keywordprg=:Man
-
-" if has("eval") | let g:loaded_matchparen=1 | endif
 let loaded_netrwPlugin=0
-let c_comment_strings=0
-unlet c_comment_strings
+runtime! ftplugin/man.vim | set keywordprg=:Man
+let c_comment_strings=0 | unlet c_comment_strings
 
 " ---
-
-nnoremap <Esc>u :nohl<CR>
-nnoremap <C-L> :nohl<CR><C-L>
-
-nnoremap <Leader>n :%s///gn<CR>
-
-nnoremap <Leader>d :w! /tmp/vimdiff<CR>:!_vim-diff %<CR><CR>
-nnoremap <Leader>b :buffers<CR>
 
 nnoremap <Leader>c :set ignorecase!<CR>:set ignorecase?<CR>
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
 nnoremap <Leader>w :set wrap!<CR>:set wrap?<CR>
+
+nnoremap <Leader>b :buffers<CR>
+nnoremap <Leader>d :w! /tmp/vimdiff<CR>:!_vim-diff %<CR><CR>
+nnoremap <Leader>n :%s///gn<CR>
 
 nnoremap <Leader>f !!fmt<CR>
 nnoremap <Leader>F !!fmt -128<CR>
 vnoremap <Leader>f !fmt<CR>
 vnoremap <Leader>F !fmt -128<CR>
 
+nnoremap <Esc>u :nohl<CR>
+nnoremap <C-L> :nohl<CR><C-L>
+
 " ---
 
 autocmd VimResized * wincmd =
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" italic 
+" italic
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
 " undercurl
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
+
+" ---
 
 fu! GetSyntaxID()
   return synID(line('.'), col('.'), 1)
@@ -145,4 +141,4 @@ fu! GetSyntax()
   exec "hi ".synIDattr(GetSyntaxParentID(), 'name')
 endfu
 
-nnoremap <Leader><Leader> :call GetSyntax()<CR>
+nnoremap <Leader>? :call GetSyntax()<CR>
