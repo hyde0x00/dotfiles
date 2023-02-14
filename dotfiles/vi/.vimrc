@@ -54,11 +54,17 @@ set hlsearch incsearch
 set ignorecase smartcase
 
 set autoindent
-autocmd FileType * setlocal nosmartindent nocindent indentexpr=
 
 set wrap
 " set linebreak
 " let &showbreak = '↳ '
+
+set nofoldenable
+set shortmess+=IaoOtF
+set splitright splitbelow
+set synmaxcol=0
+set display=lastline
+set title titlestring=%F
 
 set ruler
 set laststatus=1
@@ -67,13 +73,6 @@ set nolist
 set listchars=trail:\ ,eol:\ ,tab:│\
 set listchars+=precedes:«,extends:»
 set fillchars+=lastline:\ ,vert:│
-
-set nofoldenable
-set shortmess+=IaoOtF
-set splitright splitbelow
-set synmaxcol=0
-set display=lastline
-set title titlestring=%F
 
 set nobackup
 set noswapfile
@@ -101,7 +100,7 @@ nnoremap <Leader>c :set ignorecase!<CR>:set ignorecase?<CR>
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
 nnoremap <Leader>w :set wrap!<CR>:set wrap?<CR>
 
-nnoremap <Leader>b :buffers<CR>
+nnoremap <Leader>b :buffers<CR>:buffer 
 nnoremap <Leader>d :w! /tmp/vimdiff<CR>:!_vim-diff %<CR><CR>
 nnoremap <Leader>n :%s///gn<CR>
 
@@ -115,13 +114,13 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 " ---
 
-autocmd VimResized * wincmd =
+autocmd FileType * setlocal nosmartindent nocindent indentexpr=
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd VimResized * wincmd =
 
 " italic
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
-
 " undercurl
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
