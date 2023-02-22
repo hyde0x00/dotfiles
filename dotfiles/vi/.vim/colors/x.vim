@@ -69,16 +69,16 @@ hi  PmenuSel          ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  PmenuSbar         ctermfg=NONE  ctermbg=8     cterm=NONE
 hi  PmenuThumb        ctermfg=NONE  ctermbg=NONE  cterm=reverse
 
-hi  StatusLine        ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
-hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse,bold
+hi  StatusLine        ctermfg=NONE  ctermbg=NONE  cterm=reverse
+hi  StatusLineTerm    ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  StatusLineNC      ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  StatusLineTermNC  ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
 
-hi  Title             ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  TabLine           ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=bold
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse,underline
+hi  Title             ctermfg=NONE  ctermbg=NONE  cterm=NONE
 
 hi  SpellBad          ctermfg=9     ctermbg=NONE  cterm=underline
 hi  SpellLocal        ctermfg=14    ctermbg=NONE  cterm=underline

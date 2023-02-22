@@ -68,6 +68,7 @@ set title titlestring=%F
 
 set ruler
 set laststatus=1
+set showtabline=1
 
 set nolist
 set listchars=trail:\ ,eol:\ ,tab:│\
@@ -84,7 +85,7 @@ set nowritebackup
 
 set tags+=.tags
 
-set completeopt=""
+"set completeopt=""
 set wildmode=longest,list
 
 set nospell
