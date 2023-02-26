@@ -71,9 +71,9 @@ set laststatus=1
 set showtabline=1
 
 set fillchars+=lastline:\ ,vert:│
-set nolist
 set listchars=trail:\ ,eol:\ ,tab:│\
-set listchars+=precedes:«,extends:»
+set listchars+=precedes:<,extends:>
+set nolist
 
 set nobackup
 set noswapfile

@@ -68,8 +68,13 @@ hi  StatusLineTermNC  ctermfg=8     ctermbg=NONE  cterm=reverse
 hi  VertSplit         ctermfg=8     ctermbg=NONE  cterm=NONE
 
 hi  TabLine           ctermfg=8     ctermbg=NONE  cterm=reverse
+hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=reverse
+hi  TabLineFill       ctermfg=NONE  ctermbg=NONE  cterm=NONE
+
+hi  TabLine           ctermfg=NONE  ctermbg=NONE  cterm=reverse
 hi  TabLineSel        ctermfg=NONE  ctermbg=NONE  cterm=bold
 hi  TabLineFill       ctermfg=8     ctermbg=NONE  cterm=reverse,underline
+
 hi  Title             ctermfg=NONE  ctermbg=NONE  cterm=NONE
 
 hi  SpellBad          ctermfg=9     ctermbg=NONE  cterm=underline
