@@ -76,7 +76,7 @@ export FZF_DEFAULT_OPTS+=' --bind=alt-n:preview-down,alt-p:preview-up'
 export FZF_DEFAULT_OPTS+=' --bind=alt-j:preview-half-page-down,alt-k:preview-half-page-up'
 export FZF_DEFAULT_OPTS+=' --bind=alt-l:preview-bottom,alt-h:preview-top'
 
-export LESS='-R -M -i'
+export LESS='-R -M -i --tilde'
 export LESS_TERMCAP_md="$(printf '\33[m')" # no bold
 export LESS_TERMCAP_us="$(printf '\33[m')" # no underline
 export GROFF_NO_SGR=0 MANWIDTH=80
@@ -86,24 +86,24 @@ printf '# command
 . next-file
 ' > "$HOME/.lesskey" && lesskey &>/dev/null
 
-#alias pacman='pacman --color=auto'
-#alias yay='yay --color=auto'
-#alias diff='diff --color=auto'
-#alias dir='dir --color=auto'
-#alias dmesg='dmesg --color=auto'
-#alias grep='grep --color=auto'
-#alias ls='ls -h -G --color=auto'
-#alias tree='tree -C -n'
-#alias vdir='vdir --color=auto'
-
 export AV_LOG_FORCE_NOCOLOR=1
 export LS_COLORS=':st=:tw=:ow='
 export TREE_COLORS=''
 
-#export GCC_COLORS='error=31:warning=35:note=36:range1=32:range2=34:locus=:quote=:path=36:fixit-insert=32:fixit-delete=31:diff-filename=:diff-hunk=32:diff-delete=31:diff-insert=32:type-diff=32' # gcc colors no bold
+# export GCC_COLORS='error=31:warning=35:note=36:range1=32:range2=34:locus=:quote=:path=36:fixit-insert=32:fixit-delete=31:diff-filename=:diff-hunk=32:diff-delete=31:diff-insert=32:type-diff=32' # gcc colors no bold
 export GCC_COLORS=''
 
-#export GREP_COLORS='ms=4:mc=:sl=:cx=:fn=:ln=:bn=:se=' # grep underline matches
+# export GREP_COLORS='ms=4:mc=:sl=:cx=:fn=:ln=:bn=:se=' # grep underline matches
+
+# alias pacman='pacman --color=auto'
+# alias yay='yay --color=auto'
+# alias diff='diff --color=auto'
+# alias dir='dir --color=auto'
+# alias dmesg='dmesg --color=auto'
+# alias grep='grep --color=auto'
+# alias ls='ls -h -G --color=auto'
+# alias tree='tree -C -n'
+# alias vdir='vdir --color=auto'
 
 killjobs() {
         jobs -p | xargs kill 2>/dev/null

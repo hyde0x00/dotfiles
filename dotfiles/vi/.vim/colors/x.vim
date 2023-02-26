@@ -28,25 +28,17 @@ hi  Constant          ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  String            ctermfg=10    ctermbg=NONE  cterm=NONE
 hi  Special           ctermfg=10    ctermbg=NONE  cterm=NONE
 
-hi  Comment           ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  Todo              ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  Statement         ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  Constant          ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  String            ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  Special           ctermfg=NONE  ctermbg=NONE  cterm=NONE
-
 hi  Identifier        ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  Function          ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  PreProc           ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  Type              ctermfg=NONE  ctermbg=NONE  cterm=NONE
 
-hi  LineNr            ctermfg=8     ctermbg=NONE  cterm=NONE
-hi  CursorLineNr      ctermfg=8     ctermbg=NONE  cterm=NONE
-
 hi  EndofBuffer       ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  Folded            ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  FoldColumn        ctermfg=8     ctermbg=NONE  cterm=NONE
 
+hi  LineNr            ctermfg=8     ctermbg=NONE  cterm=NONE
+hi  CursorLineNr      ctermfg=8     ctermbg=NONE  cterm=NONE
 hi  ColorColumn       ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  CursorColumn      ctermfg=NONE  ctermbg=NONE  cterm=NONE
 hi  CursorLine        ctermfg=NONE  ctermbg=NONE  cterm=NONE
@@ -58,11 +50,11 @@ hi  DiffText          ctermfg=0     ctermbg=6     cterm=NONE
 
 hi  Error             ctermfg=15    ctermbg=1     cterm=NONE
 hi  MatchParen        ctermfg=15    ctermbg=6     cterm=NONE
-hi  Visual            ctermfg=NONE  ctermbg=4     cterm=NONE
 
 hi  Search            ctermfg=15    ctermbg=5     cterm=NONE
 hi  IncSearch         ctermfg=15    ctermbg=2     cterm=NONE
 hi  Searchlight       ctermfg=15    ctermbg=2     cterm=NONE
+hi  Visual            ctermfg=NONE  ctermbg=4     cterm=NONE
 
 hi  Pmenu             ctermfg=15    ctermbg=8     cterm=NONE
 hi  PmenuSel          ctermfg=NONE  ctermbg=NONE  cterm=reverse
@@ -101,22 +93,15 @@ hi  SpecialKey        ctermfg=8     ctermbg=NONE  cterm=NONE
 
 " ---
 
-hi  cError            ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  cErrInBracket     ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi  cErrInParen       ctermfg=NONE  ctermbg=NONE  cterm=NONE
-
 hi! link diffAdded    DiffAdd
 hi! link diffChanged  DiffChange
 hi! link diffRemoved  DiffDelete
 
+hi! link  cCommentStartError  Comment
+hi! link  cWrongComTail       Comment
 hi! link  cError              __NONE
 hi! link  cErrInBracket       __NONE
 hi! link  cErrInParen         __NONE
-
-hi! link  cCommentStartError  Comment
-hi! link  cWrongComTail       Comment
-
-" ---
 
 hi! link  htmlLink                 __NONE
 hi! link  htmlBold                 __NONE
@@ -185,3 +170,12 @@ hi! link  markdownUrlTitleDelimiter __NONE
 hi! link  markdownUrlTitle __NONE
 hi! link  markdownValid __NONE
 hi! link  markdownYamlHead __NONE
+
+hi  Comment           ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  Todo              ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  Statement         ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  Constant          ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  String            ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  Special           ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  Error             ctermfg=NONE  ctermbg=NONE  cterm=NONE
+hi  MatchParen        ctermfg=NONE  ctermbg=NONE  cterm=NONE

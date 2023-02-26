@@ -2,7 +2,7 @@
 
 [ -z "$1" ] && exit
 
-printf "%s [y/N] " "$*"
+printf "%s [Y/n] " "$*"
 
 read -r yn
 

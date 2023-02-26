@@ -70,18 +70,16 @@ set ruler
 set laststatus=1
 set showtabline=1
 
+set fillchars+=lastline:\ ,vert:│
 set nolist
 set listchars=trail:\ ,eol:\ ,tab:│\
 set listchars+=precedes:«,extends:»
-set fillchars+=lastline:\ ,vert:│
 
 set nobackup
 set noswapfile
 set nowritebackup
 
 " ---
-
-" if has("eval") | let g:loaded_matchparen=1 | endif
 
 set tags+=.tags
 
@@ -93,9 +91,14 @@ set spelllang=en_us,ru_ru
 
 let loaded_netrwPlugin=0
 runtime! ftplugin/man.vim | set keywordprg=:Man
+
+" if has("eval") | let g:loaded_matchparen=1 | endif
 let c_comment_strings=0 | unlet c_comment_strings
 
 " ---
+
+nnoremap <Esc>u :nohl<CR>
+nnoremap <C-L> :nohl<CR><C-L>
 
 nnoremap <Leader>c :set ignorecase!<CR>:set ignorecase?<CR>
 nnoremap <Leader>s :set spell!<CR>:set spell?<CR>
@@ -103,15 +106,11 @@ nnoremap <Leader>w :set wrap!<CR>:set wrap?<CR>
 
 nnoremap <Leader>b :buffers<CR>:buffer 
 nnoremap <Leader>d :w! /tmp/vimdiff<CR>:!_vim-diff %<CR><CR>
-nnoremap <Leader>n :%s///gn<CR>
 
-nnoremap <Leader>f !!fmt<CR>
-nnoremap <Leader>F !!fmt -128<CR>
+nnoremap <Leader>f !}fmt<CR>
+nnoremap <Leader>F !}fmt -128<CR>
 vnoremap <Leader>f !fmt<CR>
 vnoremap <Leader>F !fmt -128<CR>
-
-nnoremap <Esc>u :nohl<CR>
-nnoremap <C-L> :nohl<CR><C-L>
 
 " ---
 
